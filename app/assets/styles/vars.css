@@ -1,0 +1,39 @@
+:root {
+    /* Настройки кнопок */
+    --p-button-padding-y: 0.5rem;
+    --p-button-padding-x: 1rem;
+    --p-button-border-radius: 0rem;
+    --p-button-font-size: 0.875rem;
+    --p-button-label-font-weight: 500;
+
+    --p-inputnumber-button-border-radius: 0;
+    --p-inputnumber-button-background : transparent;
+
+    /* Настройки полей ввода */
+    --p-input-padding-y: 0.5rem;
+    --p-input-padding-x: 0.75rem;
+    --p-input-border-radius: 0.25rem;
+    --p-input-font-size: 0.875rem;
+
+    /* Настройки карточек */
+    --p-card-padding: 1rem;
+    --p-card-border-radius: 0.5rem;
+
+    /* Настройки таблиц */
+    --p-table-cell-padding-y: 0.5rem;
+    --p-table-cell-padding-x: 0.75rem;
+
+    /* Другие общие настройки */
+    --p-border-radius: 0.25rem;
+    --p-spacing: 1rem;
+
+    --p-accordion-header-first-border-width : 0;
+    --p-accordion-header-border-width :0;
+    --p-accordion-content-border-width:0;
+    --p-accordion-content-background: unset;
+    --p-accordion-header-last-bottom-border-radius:0;
+    --p-accordion-header-first-top-border-radius:0;
+
+    --p-form-field-border-radius:0;
+
+}
