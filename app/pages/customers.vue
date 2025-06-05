@@ -29,7 +29,7 @@ const faq = [
 </script>
 
 <template>
-<div class="container">
+<div class="container mt-4">
   <img class="mb-12" src="https://placehold.co/1920x300" alt="">
   <div class="flex gap-3 text-sm mb-16">
     <nuxt-link class="opacity-50" to="/">Главная</nuxt-link>

@@ -55,7 +55,7 @@ const in_cart = async () => {
               <img class="w-full h-full object-cover" :src="product.product.image" alt="">
             </div>
             <div class="flex flex-col items-start justify-between col-span-12 md:col-span-10">
-              <p class="uppercase font-semibold text-sm ">product.product.name</p>
+              <p class="uppercase font-semibold text-sm ">{{product.product.name}}</p>
               <p class="opacity-50 text-sm">{{product.product.price}}₽</p>
               <p class="opacity-50 text-sm">{{product.product.short_description}}</p>
             </div>

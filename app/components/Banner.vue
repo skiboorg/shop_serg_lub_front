@@ -10,7 +10,7 @@ const carouselConfig = {
 </script>
 
 <template>
-  <div class="container mb-[60px]">
+  <div class="mb-10">
     <Carousel class="py-0" v-bind="carouselConfig">
       <Slide v-for="slide in 10" :key="slide">
         <div class="h-[768px] flex flex-col items-center justify-center">

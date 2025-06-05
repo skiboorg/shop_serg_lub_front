@@ -10,7 +10,7 @@ const cartCount = useState('cartCount')
 </script>
 
 <template>
-<header class="py-3 border-b mb-4">
+<header class="py-3 border-b ">
   <div class="container">
     <div class="flex items-center justify-between">
       <nav class="hidden md:flex gap-7">

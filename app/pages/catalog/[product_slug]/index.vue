@@ -68,9 +68,9 @@ const product = useDataOrFail(useAsyncData(() =>
 
         </div>
         <div class="">
-          <h1 class="font-semibold text-[20px] uppercase">{{product.name}}</h1>
+          <h1 class="font-semibold text-[22px] uppercase">{{product.name}}</h1>
           <p class="opacity-50 text-sm mb-7">Артикул: {{product.article}}</p>
-          <p class="mb-7">{{product.price}} ₽</p>
+          <p class="mb-7 text-[15px]">{{product.price}} ₽</p>
           <AddToCartBtn class="mb-7" :item_id="product.id" :can_add_to_cart="true" :show_button="true"/>
           <p class="text-sm opacity-50 mb-7" v-if="product.short_description">{{product.short_description}}</p>
 
@@ -127,15 +127,13 @@ const product = useDataOrFail(useAsyncData(() =>
 }
 
 img {
-  border-radius: 8px;
+
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.gallery-image {
-  border-radius: 16px;
-}
+
 
 #thumbnails {
   margin-top: 10px;
