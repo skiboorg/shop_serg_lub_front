@@ -2,6 +2,7 @@ import Aura from '@primeuix/themes/lara';
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  site: { indexable: false },
 
   future: {
     compatibilityVersion: 4
@@ -29,7 +30,7 @@ export default defineNuxtConfig({
 
     autoImport: true,
     components: {
-      exclude: ['form']
+      exclude: ['form','chart']
     },
     options: {
 
