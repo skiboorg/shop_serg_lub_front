@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     'nuxt3-notifications',
     'vue3-carousel-nuxt',
+    '@nuxtjs/robots',
   ],
 
   css: [
@@ -42,6 +43,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public:{
       apiUrl: 'http://127.0.0.1:8000',
+      //apiUrl: 'https://notcatart.com',
     }
   },
   compatibilityDate: '2025-04-07',
