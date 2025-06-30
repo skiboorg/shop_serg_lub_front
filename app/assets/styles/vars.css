@@ -1,40 +1,40 @@
 :root {
     /* Настройки кнопок */
-    --p-button-padding-y: 0.5rem;
-    --p-button-padding-x: 1rem;
-    --p-button-border-radius: 0rem;
-    --p-button-font-size: 0.875rem;
-    --p-button-label-font-weight: 500;
+    --p-button-padding-y: 0.5rem !important !important;
+    --p-button-padding-x: 1rem !important;
+    --p-button-border-radius: 0rem !important;
+    --p-button-font-size: 0.875rem !important;
+    --p-button-label-font-weight: 500 !important;
 
-    --p-inputnumber-button-border-radius: 0;
-    --p-inputnumber-button-background : transparent;
+    --p-inputnumber-button-border-radius: 0 !important;
+    --p-inputnumber-button-background : transparent !important;
 
     /* Настройки полей ввода */
-    --p-input-padding-y: 0.5rem;
-    --p-input-padding-x: 0.75rem;
-    --p-input-border-radius: 0.25rem;
-    --p-input-font-size: 0.875rem;
+    --p-input-padding-y: 0.5rem !important;
+    --p-input-padding-x: 0.75rem !important;
+    --p-input-border-radius: 0.25rem !important;
+    --p-input-font-size: 0.875rem !important;
 
     /* Настройки карточек */
-    --p-card-padding: 1rem;
-    --p-card-border-radius: 0.5rem;
+    --p-card-padding: 1rem !important;
+    --p-card-border-radius: 0.5rem !important;
 
     /* Настройки таблиц */
-    --p-table-cell-padding-y: 0.5rem;
-    --p-table-cell-padding-x: 0.75rem;
+    --p-table-cell-padding-y: 0.5rem !important;
+    --p-table-cell-padding-x: 0.75rem !important;
 
     /* Другие общие настройки */
-    --p-border-radius: 0.25rem;
-    --p-spacing: 1rem;
+    --p-border-radius: 0.25rem !important;
+    --p-spacing: 1rem !important;
 
-    --p-accordion-header-first-border-width : 0;
-    --p-accordion-header-border-width :0;
-    --p-accordion-content-border-width:0;
-    --p-accordion-content-background: unset;
-    --p-accordion-header-last-bottom-border-radius:0;
-    --p-accordion-header-first-top-border-radius:0;
+    --p-accordion-header-first-border-width : 0 !important;
+    --p-accordion-header-border-width :0 !important;
+    --p-accordion-content-border-width:0 !important;
+    --p-accordion-content-background: unset !important;
+    --p-accordion-header-last-bottom-border-radius:0 !important;
+    --p-accordion-header-first-top-border-radius:0 !important;
 
-    --p-form-field-border-radius:0;
-    --p-accordion-header-background: transparent;
+    --p-form-field-border-radius:0 !important;
+    --p-accordion-header-background: transparent !important;
 
 }

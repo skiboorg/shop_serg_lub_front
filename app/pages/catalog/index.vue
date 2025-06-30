@@ -16,8 +16,17 @@ const loadingCart = computed(() => categoriesRes.status.value === 'pending' || p
 const categories = categoriesRes.data;
 const products = productsRes.data;
 
+const selectedCategorySlug = ref('all')
+const selectedCategory = ref(null)
+
 const changeCategory = (slug: string) => {
   router.push({ query: { name: slug } })
+  selectedCategorySlug.value = slug
+  if (slug === 'all') {
+    selectedCategory.value = null
+  }else {
+    selectedCategory.value = categories.value.find(category => category.slug === selectedCategorySlug.value)
+  }
 }
 
 </script>
@@ -46,9 +55,11 @@ const changeCategory = (slug: string) => {
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      <ProductCard :can_add_to_cart="true" v-for="  item in name==='all' ? products : products.filter(product => product.cat_slug === name)" :item="item" />
+      <ProductCard :can_add_to_cart="true" v-for="item in name==='all' ? products : products.filter(product => product.cat_slug === name)" :item="item" />
 
     </div>
+
+    <StylesBlock class="mt-10" v-if="selectedCategory && selectedCategory.styles?.length >0" :category_styles="selectedCategory.styles"/>
   </div>
 </div>
 </template>

@@ -6,6 +6,6 @@
   <PopularBlock/>
   <StrangeBlock/>
   <CategoryBlock/>
-  <StylesBlock/>
+  <StylesBlock title="СОБЕРИ СВОЙ ОБРАЗ"/>
 
 </template>
