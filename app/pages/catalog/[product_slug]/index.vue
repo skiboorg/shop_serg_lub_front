@@ -49,9 +49,9 @@ const product = useDataOrFail(useAsyncData(() =>
         <span>{{product.name}}</span>
       </div>
       <Section >
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
           <div class="grid grid-cols-12 gap-5">
-            <Carousel class="hidden md:block col-span-2"  id="thumbnails" v-bind="thumbnailsConfig" v-model="currentSlide">
+            <Carousel class="hidden md:block col-span-2 "  id="thumbnails" v-bind="thumbnailsConfig" v-model="currentSlide">
               <Slide v-for="image in product.images" :key="image.id">
                 <template #default="{ currentIndex, isActive }">
                   <div
@@ -63,7 +63,7 @@ const product = useDataOrFail(useAsyncData(() =>
                 </template>
               </Slide>
             </Carousel>
-            <Carousel class="col-span-12 md:col-span-10 h-[200px] md:h-auto" id="gallery" v-bind="galleryConfig" v-model="currentSlide">
+            <Carousel class="col-span-12 md:col-span-10 h-[200px] md:h-full" id="gallery" v-bind="galleryConfig" v-model="currentSlide">
               <Slide v-for="image in product.images" :key="image.id">
                 <img :src="image.image" alt="Gallery Image" class="gallery-image" />
               </Slide>
