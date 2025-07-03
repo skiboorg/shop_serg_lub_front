@@ -24,6 +24,15 @@ const in_cart = async () => {
   loading.value = false
   toast.add({ severity: 'success', summary: 'Успешно', detail: 'Набор добавлен в корзину', life: 1000 });
 }
+
+const totalPrice = computed(()=>{
+  let total = 0
+  style.value?.products?.forEach((item:any)=>{
+    total += parseFloat(item.product.price)
+  })
+  return total
+})
+
 </script>
 
 <template>
@@ -46,21 +55,24 @@ const in_cart = async () => {
         <div class="">
           <h1 class="font-semibold text-[20px] uppercase">{{style.name}}</h1>
 <!--          <p class="opacity-50 text-sm mb-7">Артикул: GTN00031</p>-->
-          <p class="mb-7">{{style.price}}₽</p>
+          <p class="mb-7">{{totalPrice}} ₽</p>
 
           <div class="text-sm opacity-50 mb-7" v-html="style.html_content"></div>
-          <div class=" grid grid-cols-12 gap-5 mb-5 h-auto md:h-[110px]" v-for="product in style.products">
+          <div class=" grid grid-cols-12 gap-5 mb-5 h-auto " v-for="product in style.products">
 
-            <div class="col-span-12 md:col-span-2">
+            <div class="col-span-12 md:col-span-4 ">
               <img class="w-full h-full object-cover" :src="product.product.image" alt="">
             </div>
-            <div class="flex flex-col items-start justify-between col-span-12 md:col-span-10">
+            <div class="flex flex-col items-start justify-between col-span-12 md:col-span-8 ">
               <p class="uppercase font-semibold text-sm ">{{product.product.name}}</p>
               <p class="opacity-50 text-sm">{{product.product.price}}₽</p>
               <p class="opacity-50 text-sm">{{product.product.short_description}}</p>
             </div>
           </div>
-          <Button :loading="loading" @click="in_cart" severity="contrast" class="uppercase"  label="В корзину"/>
+          <div class="">
+            <Button :loading="loading" @click="in_cart" severity="contrast" class="uppercase"  label="В корзину"/>
+          </div>
+
         </div>
       </div>
     </Section>

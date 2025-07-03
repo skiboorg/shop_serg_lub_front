@@ -36,5 +36,8 @@
 
     --p-form-field-border-radius:0 !important;
     --p-accordion-header-background: transparent !important;
+    --p-accordion-header-hover-background: transparent !important;
+    --p-accordion-header-active-background: transparent !important;
+    --p-accordion-header-active-hover-background: transparent !important;
 
 }

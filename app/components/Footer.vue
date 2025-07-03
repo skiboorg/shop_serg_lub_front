@@ -1,5 +1,8 @@
 <script setup lang="ts">
+const {$api} = useNuxtApp()
 
+
+const {data} = useAsyncData(() =>  $api.repo.categories())
 </script>
 
 <template>
@@ -22,18 +25,18 @@
           <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20">
             <div class="col-span-1 md:col-span-3">
               <p class="uppercase font-semibold mb-7">каталог</p>
+
               <div class="flex flex-col items-start gap-2 w-full">
-                <NuxtLink class="text-sm uppercase opacity-50 " to="/">Все товары</NuxtLink>
-                <NuxtLink class="text-sm uppercase opacity-50 " to="/">Блески для губ</NuxtLink>
-                <NuxtLink class="text-sm uppercase opacity-50 " to="/">Палетки теней</NuxtLink>
+                <NuxtLink class="text-sm uppercase opacity-50 " :to="`/catalog?name=${item.slug}`" v-for="item in data">{{item.name}}</NuxtLink>
+
               </div>
             </div>
             <div class="col-span-1 md:col-span-3">
               <p class="uppercase font-semibold mb-7">ПОКУПАТЕЛЯМ</p>
               <div class="flex flex-col items-start gap-2">
-                <NuxtLink class="text-sm uppercase opacity-50 " to="/">доставка и оплата</NuxtLink>
-                <NuxtLink class="text-sm uppercase opacity-50 " to="/">возврат товара</NuxtLink>
-                <NuxtLink class="text-sm uppercase opacity-50 " to="/">акции</NuxtLink>
+                <NuxtLink class="text-sm uppercase opacity-50 " to="/customers#delivery">доставка и оплата</NuxtLink>
+                <NuxtLink class="text-sm uppercase opacity-50 " to="/customers#return">возврат товара</NuxtLink>
+<!--                <NuxtLink class="text-sm uppercase opacity-50 " to="/">акции</NuxtLink>-->
               </div>
             </div>
             <div class="col-span-1 md:col-span-3">

@@ -16,8 +16,13 @@ const loadingCart = computed(() => categoriesRes.status.value === 'pending' || p
 const categories = categoriesRes.data;
 const products = productsRes.data;
 
-const selectedCategorySlug = ref('all')
+const selectedCategorySlug = ref('')
+selectedCategorySlug.value = name.value
 const selectedCategory = ref(null)
+
+if (name.value !=='all'){
+  selectedCategory.value = categories.value.find(category => category.slug === selectedCategorySlug.value)
+}
 
 const changeCategory = (slug: string) => {
   router.push({ query: { name: slug } })
