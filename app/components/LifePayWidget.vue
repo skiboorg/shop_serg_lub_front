@@ -4,7 +4,7 @@
           :loading="loading"
           severity="contrast"
           class="uppercase"
-          :disabled="!email && !phone"
+          :disabled="disabled"
           fluid
           :label="`К оформлению ${cost} ₽`"/>
 </template>
@@ -19,6 +19,7 @@ const props = defineProps<{
   comment: string
   orderId: string
   loading: boolean
+  disabled: boolean
 }>()
 
 const emit = defineEmits<{

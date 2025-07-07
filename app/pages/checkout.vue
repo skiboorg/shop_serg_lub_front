@@ -16,6 +16,11 @@ const cartCount = useState('cartCount')
 const sessionUUID = useCookie('session_uuid')
 const orderId = 'ЗАКАЗ-' + Date.now().toString().slice(-5)
 
+const validateEmail = computed(()=>{
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form_data_personal.value[0].value)
+})
+
+
 const pay_error = ref(null)
 const  handleSuccess= async () => {
   loading.value = true
@@ -84,8 +89,12 @@ const  handleSuccess= async () => {
         <p class="font-semibold text-[20px] mb-5">Итого</p>
         <div class=" border p-5">
           <div class="flex justify-between mb-5 pb-5 border-b">
-            <p class="uppercase">Товар на сумму</p>
+            <p class="uppercase">Товаров на сумму</p>
             <p>{{cartCount.total_price}} ₽</p>
+          </div>
+          <div class="flex justify-between mb-5 pb-5 border-b">
+            <p class="uppercase">Доставка</p>
+            <p>0 ₽</p>
           </div>
           <div class="flex justify-between  mb-5">
             <p class="uppercase">Итого:</p>
@@ -97,6 +106,7 @@ const  handleSuccess= async () => {
                          :orderId="orderId"
                          :loading="loading"
                          @success="handleSuccess"
+                         :disabled="!validateEmail"
                          :cost="cartCount.total_price"
                          :phone="form_data_personal[2].value"
                          :email="form_data_personal[0].value" />
