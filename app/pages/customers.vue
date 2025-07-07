@@ -30,8 +30,6 @@ const delivery = [
         'При доставке Товара «Палетка или Палетки» общая стоимость Товара подлежит автоматическому\n' +
         'увеличению на стоимость доставки.' +
         'УК РФ.'},
-  {q:'xxx',a:'xxx'},
-  {q:'xxx',a:'xxx'},
 ]
 
 
@@ -40,7 +38,7 @@ const ret = [
         'надлежащего качества не подлежат обмену или возврату.'},
   {q:'Что делать, если мне пришел поврежденный товар?',a:'Свяжитесь с нами по указанным ниже контактам для решения вашей ситуации! Будьте готовы назвать ФИО заказчика и номер заказа.'},
   {q:'Как я могу связаться со службой поддержки?',a:'В футере (подвале) сайта указаны наши контактные данные - номер телефона, whatsapp и telegram.'},
-  {q:'xxx',a:'xxx'},
+
 ]
 
 // const faq = [
@@ -53,14 +51,14 @@ const ret = [
 
 <template>
 <div class="container mt-4">
-  <img class="mb-12" src="~assets/images/cus.png" alt="">
+  <img class="mb-6 md:mb-12" src="~assets/images/cus.png" alt="">
   <div class="flex gap-3 text-sm mb-16">
     <nuxt-link class="opacity-50" to="/">Главная</nuxt-link>
     <span>/</span>
     <span>Покупателям</span>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-12">
-    <div class="col-span-3">
+    <div class="hidden md:block col-span-3">
       <div class="flex flex-col items-start gap-3">
         <a href="#delivery" class="uppercase font-semibold">ДОСТАВКА И ОПЛАТА</a>
 <!--        <a href="#payment" class="uppercase font-semibold">Оплата и заказ</a>-->
@@ -69,9 +67,9 @@ const ret = [
       </div>
 
     </div>
-    <div class="col-span-9">
+    <div class="col-span-12 md:col-span-9">
       <div id="delivery" class="mb-14">
-        <p class="text-lg md:text-2xl uppercase font-semibold mb-5">ДОСТАВКА И ОПЛАТА</p>
+        <p class="text-lg md:text-2xl uppercase font-semibold md-2 md:mb-5">ДОСТАВКА И ОПЛАТА</p>
         <Accordion >
           <AccordionPanel v-for="(item,index) in delivery" :value="index">
             <AccordionHeader>{{item.q}}</AccordionHeader>
@@ -95,7 +93,7 @@ const ret = [
 <!--        </Accordion>-->
 <!--      </div>-->
       <div id="return" class="mb-14">
-        <p class="text-lg md:text-2xl uppercase font-semibold mb-5">возврат товара</p>
+        <p class="text-lg md:text-2xl uppercase font-semibold md-2 md:mb-5">возврат товара</p>
         <Accordion >
           <AccordionPanel v-for="(item,index) in ret" :value="index">
             <AccordionHeader>{{item.q}}</AccordionHeader>

@@ -42,7 +42,7 @@ const product = useDataOrFail(useAsyncData(() =>
   </template>
   <template v-else>
     <div class="container" >
-      <div class="flex gap-3 text-sm mb-5 mt-10">
+      <div class="flex flex-wrap gap-3 text-sm mb-5 mt-10">
         <nuxt-link class="opacity-50" to="/">Главная</nuxt-link>
         <span>/</span>
         <nuxt-link class="opacity-50" :to="`/catalog?name=${product.cat_slug}`">{{product.cat_name}}</nuxt-link>

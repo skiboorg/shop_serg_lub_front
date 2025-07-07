@@ -2,11 +2,39 @@
 const form_data_personal = ref([
     {label:'Почта',key:'email', value:''},
     {label:'ФИО',key:'fio', value:''},
+    {label:'Телефон',key:'phone', value:''},
     ])
 const form_data_address = ref([
   {label:'Город',key:'city', value:''},
   {label:'Адрес', key:'address',value:''},
 ])
+import { useToast } from 'primevue/usetoast';
+const toast = useToast();
+const {$api} = useNuxtApp()
+const loading = ref(false)
+const cartCount = useState('cartCount')
+const sessionUUID = useCookie('session_uuid')
+const pay_error = ref(null)
+const  handleSuccess= async (orderId: string) => {
+  loading.value = true
+  try{
+    let order_data = form_data_personal.value.reduce((acc, { key, value }) => {
+      acc[key] = value
+      return acc
+    }, {})
+    order_data['order_id'] = orderId
+    cartCount.value = await $api.repo.new_order({session_id:sessionUUID.value,payload:order_data})
+    toast.add({ severity: 'success', summary: 'Успешно', detail: 'Заказ создан', life: 3000 });
+  }catch(error){
+    console.log(error)
+    toast.add({ severity: 'error', summary: 'Ошибка', detail: 'Свяжитесь с техподдержкой', life: 3000 });
+  }finally{
+    loading.value = false
+  }
+
+}
+
+
 </script>
 
 <template>
@@ -38,21 +66,23 @@ const form_data_address = ref([
         <div class=" border p-5">
           <div class="flex justify-between mb-5 pb-5 border-b">
             <p class="uppercase">Товар на сумму</p>
-            <p>4 980₽</p>
+            <p>{{cartCount.total_price}} ₽</p>
           </div>
           <div class="flex justify-between  mb-5">
             <p class="uppercase">Итого:</p>
-            <p>4 980₽</p>
+            <p>{{cartCount.total_price}} ₽</p>
           </div>
-          <nuxt-link to="/checkout" >
-            <Button severity="contrast" class="uppercase" fluid label="К оформлению"/>
-          </nuxt-link>
+          <p v-if="pay_error" class="text-red-500 font-bold">{{pay_error}}</p>
+
+          <LifePayWidget :loading="loading" @success="handleSuccess" :cost="cartCount.total_price" :phone="form_data_personal[2].value" :email="form_data_personal[0].value" />
+
         </div>
       </div>
 
     </div>
 
   </div>
+
 </template>
 
 <style scoped>

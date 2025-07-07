@@ -30,6 +30,12 @@ export function createBlankRepository(appFetch: typeof $fetch){
         },
         product(slug:string){
             return appFetch('/api/shop/product/'+slug,{})
+        },
+        new_order(params:{session_id:string,payload:any}){
+            return appFetch('/api/order/?session_id='+params.session_id,{
+                method:'post',
+                body:params.payload,
+            })
         }
     }
 

@@ -63,14 +63,14 @@ const totalPrice = computed(()=>{
             <div class="col-span-12 md:col-span-4 ">
               <img class="w-full h-full object-cover" :src="product.product.image" alt="">
             </div>
-            <div class="flex flex-col items-start justify-between col-span-12 md:col-span-8 ">
-              <p class="uppercase font-semibold text-sm ">{{product.product.name}}</p>
-              <p class="opacity-50 text-sm">{{product.product.price}}₽</p>
+            <div class="flex flex-col items-start justify-start col-span-12 md:col-span-8 ">
+              <p class="uppercase font-semibold text-sm mb-4 ">{{product.product.name}}</p>
+              <p class="opacity-50 text-sm mb-4 ">{{product.product.price}}₽</p>
               <p class="opacity-50 text-sm">{{product.product.short_description}}</p>
             </div>
           </div>
           <div class="">
-            <Button :loading="loading" @click="in_cart" severity="contrast" class="uppercase"  label="В корзину"/>
+            <Button :loading="loading" @click="in_cart" severity="contrast" class="uppercase px-10 w-full md:w-auto" label="В корзину"/>
           </div>
 
         </div>

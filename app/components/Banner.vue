@@ -42,11 +42,17 @@ const is_mobile = breakpoints.between('mobile', 'tablet')
 <!--        </div>-->
 <!--      </Slide>-->
 <!--    </Carousel>-->
+<div class="container relative">
+  <div class="absolute flex flex-col items-center justify-center w-full h-full">
+    <Button label="ПЕРЕЙТИ К ПОКУПКАМ" severity="secondary" icon-pos="right" icon="pi pi-arrow-right"/>
+  </div>
+  <video autoplay loop muted class="h-[540px] w-full object-cover">
+    <source :src="is_mobile ? '/sm.mp4' :  '/lg.mp4'" type="video/mp4">
 
-    <video autoplay loop muted>
-      <source :src="is_mobile ? '/sm.mp4' :  '/lg.mp4'" type="video/mp4">
+  </video>
 
-    </video>
+</div>
+
   </div>
 
 </template>
