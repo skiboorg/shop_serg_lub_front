@@ -6,6 +6,6 @@
   <PopularBlock/>
   <StrangeBlock/>
   <CategoryBlock/>
-  <StylesBlock title="СОБЕРИ СВОЙ ОБРАЗ"/>
+  <StylesBlock :in_container="true" title="СОБЕРИ СВОЙ ОБРАЗ"/>
 
 </template>

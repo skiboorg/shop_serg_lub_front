@@ -66,10 +66,10 @@ const product = useDataOrFail(useAsyncData(() =>
             </Carousel>
             <Carousel class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10 h-[300px] md:h-full" id="gallery" v-bind="galleryConfig" v-model="currentSlide">
               <Slide v-for="image in product.images" :key="image.id">
-                <img  :src="image.image" alt="Gallery Image" class="gallery-image w-full h-auto object-contain" />
+                <img  :src="image.image" alt="Gallery Image" class="gallery-image w-full h-unset md:h-auto object-contain" />
               </Slide>
               <template #addons>
-                <Navigation class="block md:hidden"/>
+                <Navigation class="flex md:hidden"/>
               </template>
             </Carousel>
 
@@ -81,7 +81,7 @@ const product = useDataOrFail(useAsyncData(() =>
             <AddToCartBtn class="mb-7" :item_id="product.id" :can_add_to_cart="true" :show_button="true"/>
             <p class="text-sm opacity-50 mb-7" v-if="product.short_description">{{product.short_description}}</p>
 
-            <Accordion >
+            <Accordion expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
               <AccordionPanel value="1">
                 <AccordionHeader>СВОЙСТВА</AccordionHeader>
                 <AccordionContent>

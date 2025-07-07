@@ -64,7 +64,7 @@ const changeCategory = (slug: string) => {
 
     </div>
 
-    <StylesBlock class="mt-10" v-if="selectedCategory && selectedCategory.styles?.length >0" :category_styles="selectedCategory.styles"/>
+    <StylesBlock class="mt-10 " v-if="selectedCategory && selectedCategory.styles?.length >0" :category_styles="selectedCategory.styles"/>
   </div>
 </div>
 </template>

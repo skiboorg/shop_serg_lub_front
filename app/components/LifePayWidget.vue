@@ -1,5 +1,5 @@
 <template>
-
+  <p class="text-center mb-4">Номер заказа : {{orderId}}</p>
   <Button @click="initWidget"
           :loading="loading"
           severity="contrast"
@@ -17,11 +17,12 @@ const props = defineProps<{
   email: string
   phone: string
   comment: string
+  orderId: string
   loading: boolean
 }>()
 
 const emit = defineEmits<{
-  (e: 'success', orderId: string): void
+  (e: 'success'): void
 }>()
 
 function loadScript(src: string): Promise<void> {
@@ -48,19 +49,16 @@ async function initWidget() {
     return
   }
 
-  // Автоматическая генерация order_id
-  const orderId = 'ORDER-' + Date.now().toString().slice(-5) // Можно заменить на UUID или другие схемы
-
   const widget = new window.LpWidget({
-    name: 'Оплата заказа ' + orderId,
+    name: 'Оплата заказа ' + props.orderId,
     cost: String(props.cost),
     key: 'h2+iB+hwVKc668QuePIeCwVE4vUBvyYDnGi0On7B4wc=',
     email: props.email,
-    order_id: orderId,
+    order_id:  props.orderId,
     comment: props.comment,
     on_success: () => {
       console.log('✅ Оплата прошла успешно')
-      emit('success', orderId)
+      emit('success')
     },
     on_fail: () => {
       console.log('❌ Оплата не прошла')

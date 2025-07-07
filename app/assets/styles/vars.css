@@ -43,6 +43,9 @@
     --p-inputtext-focus-border-color: black !important;
     --p-floatlabel-focus-color: black !important;
     --p-inputtext-focus-ring-shadow: unset !important;
+    --p-accordion-header-padding: 16px 0 !important;
+    --p-accordion-content-padding: 16px 0 !important;
+    --p-accordion-header-color: black !important;
 
 
 }

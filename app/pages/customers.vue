@@ -70,7 +70,7 @@ const ret = [
     <div class="col-span-12 md:col-span-9">
       <div id="delivery" class="mb-14">
         <p class="text-lg md:text-2xl uppercase font-semibold md-2 md:mb-5">ДОСТАВКА И ОПЛАТА</p>
-        <Accordion >
+        <Accordion expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
           <AccordionPanel v-for="(item,index) in delivery" :value="index">
             <AccordionHeader>{{item.q}}</AccordionHeader>
             <AccordionContent>
@@ -94,7 +94,7 @@ const ret = [
 <!--      </div>-->
       <div id="return" class="mb-14">
         <p class="text-lg md:text-2xl uppercase font-semibold md-2 md:mb-5">возврат товара</p>
-        <Accordion >
+        <Accordion expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
           <AccordionPanel v-for="(item,index) in ret" :value="index">
             <AccordionHeader>{{item.q}}</AccordionHeader>
             <AccordionContent>

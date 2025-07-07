@@ -43,8 +43,11 @@ const is_mobile = breakpoints.between('mobile', 'tablet')
 <!--      </Slide>-->
 <!--    </Carousel>-->
 <div class="container relative">
-  <div class="absolute flex flex-col items-center justify-center w-full h-full">
-    <Button label="ПЕРЕЙТИ К ПОКУПКАМ" severity="secondary" icon-pos="right" icon="pi pi-arrow-right"/>
+  <div class="absolute flex flex-col items-center justify-center w-full h-full z-50">
+    <NuxtLink to='/catalog'>
+      <Button label="ПЕРЕЙТИ К ПОКУПКАМ" severity="secondary" icon-pos="right" icon="pi pi-arrow-right"/>
+    </NuxtLink>
+
   </div>
   <video autoplay loop muted class="h-[540px] w-full object-cover">
     <source :src="is_mobile ? '/sm.mp4' :  '/lg.mp4'" type="video/mp4">

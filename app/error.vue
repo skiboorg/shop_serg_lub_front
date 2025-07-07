@@ -17,7 +17,7 @@ const isDev = import.meta.dev;
   <div v-else>
     Временная ошибка системы, не скучайте, ремонтируем
   </div>
-  <pre v-if="isDev">
-    {{ JSON.stringify(error, null, 2) }}
-  </pre>
+<!--  <pre v-if="isDev">-->
+<!--    {{ JSON.stringify(error, null, 2) }}-->
+<!--  </pre>-->
 </template>

@@ -7,7 +7,7 @@ defineProps(['image', 'title','url'])
   <img class="block w-full h-auto object-cover mb-6" :src="image" alt="">
   <p class="uppercase font-semibold mb-3">{{title}}</p>
   <NuxtLink :to="url">
-    <Button outlined severity="contrast" label="СМОТРЕТЬ ПРОДУКТЫ"/>
+    <Button fluid outlined severity="contrast" label="СМОТРЕТЬ ПРОДУКТЫ"/>
   </NuxtLink>
 
 </div>

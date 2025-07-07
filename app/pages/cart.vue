@@ -29,14 +29,14 @@ const delete_from_cart = async (id) => {
     </div>
 
     <div class="grid grid-cols-12 gap-5">
-      <div class="col-span-12 md:col-span-8">
+      <div v-if="cartCount.items_count > 0" class="col-span-12 md:col-span-8">
         <p class="font-semibold text-[20px] mb-5">{{cartCount.items_count}} товара</p>
         <div class=" border p-5">
           <div class=" grid grid-cols-12 gap-5 mb-5 pb-5 border-b last:mb-0 last:pb-0 last:border-none h-auto md:h-[130px]" v-for="item in cartCount.items">
 
             <div class="w-full h-full object-cover col-span-12 md:col-span-2"><img class="w-full h-[200px] md:h-[120px] object-cover" :src="item.product.image" alt=""></div>
             <div class="flex flex-col items-start justify-between col-span-12 md:col-span-7">
-              <p class="uppercase font-semibold text-sm w-[50%] mb-4 md:mb-0">{{item.product.name}}</p>
+              <p class="uppercase font-semibold text-sm  mb-4 md:mb-0">{{item.product.name}}</p>
               <AddToCartBtn :can_add_to_cart="true" :item_id="item.id" :show_button="false" :amount="item.amount"/>
             </div>
             <div class="flex flex-col items-start md:items-end justify-between col-span-12 md:col-span-3">
@@ -55,20 +55,26 @@ const delete_from_cart = async (id) => {
         </div>
 
       </div>
-
+      <div v-else class="col-span-12 md:col-span-8">
+        <p class="text-center h-full w-full flex flex-col items-center justify-center text-3xl">Нет товаров в корзине</p>
+      </div>
       <div class="col-span-12 md:col-span-4">
         <p class="font-semibold text-[20px] mb-5">Итого</p>
         <div class=" border p-5">
           <div class="flex justify-between mb-5 pb-5 border-b">
-            <p class="uppercase">Товар на сумму</p>
+            <p class="uppercase">Товаров на сумму</p>
             <p>{{ cartCount.total_price}} ₽</p>
+          </div>
+          <div class="flex justify-between mb-5 pb-5 border-b">
+            <p class="uppercase">Доставка</p>
+            <p>0 ₽</p>
           </div>
           <div class="flex justify-between  mb-5">
             <p class="uppercase">Итого:</p>
             <p>{{ cartCount.total_price}} ₽</p>
           </div>
           <nuxt-link to="/checkout" >
-            <Button severity="contrast" class="uppercase" fluid label="К оформлению"/>
+            <Button :disabled="cartCount.items_count === 0" severity="contrast" class="uppercase" fluid label="К оформлению"/>
           </nuxt-link>
         </div>
       </div>
