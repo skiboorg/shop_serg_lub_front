@@ -54,20 +54,20 @@ const {data} = useAsyncData(() =>  $api.repo.categories())
 
       </div>
       <div class="col-span-12 md:col-span-4 h-full">
-        <div class="p-7 h-full">
+        <div class="p-0 py-7 md:p-7 h-full">
           <div class="flex flex-col items-start justify-between h-full">
             <div class="">
               <p class="text-sm mb-2 opacity-50">ИП Прибора Ольга Викторовна</p>
               <p class="text-sm  opacity-50">ИНН 773475746015</p>
             </div>
 
-            <div class="mt-10">
+            <div class="mb-4 mt-4  md:mb-0 mb:mt-10">
               <a class="text-sm block opacity-50 mb-2">Публичная оферта</a>
               <a class="text-sm block opacity-50">Политика конфиденциальности</a>
             </div>
-            <div class="flex justify-between w-full">
-              <p class="text-sm  opacity-50">2025 © Все права защищены</p>
-              <p class="text-sm  opacity-50">Разработка сайта</p>
+            <div class="flex flex-col md:flex-row justify-between w-full gap-4">
+              <p class="order-2 md:order-1 text-sm  opacity-50">2025 © Все права защищены</p>
+              <p class="order-1 md:order-2 text-sm  opacity-50">Разработка сайта</p>
             </div>
           </div>
 

@@ -6,6 +6,11 @@ import { ref } from 'vue'
 const currentSlide = ref(0)
 const {product_slug} = useRoute().params
 const slideTo = (nextSlide) => (currentSlide.value = nextSlide)
+const {$api} = useNuxtApp()
+
+const product = useDataOrFail(await useAsyncData(() =>
+    $api.repo.product(product_slug)
+))
 
 const galleryConfig = {
   itemsToShow: 1,
@@ -15,22 +20,17 @@ const galleryConfig = {
   touchDrag: true,
   height: 600,
 }
-
+//console.log(product.value.images?.length * 100)
 const thumbnailsConfig = {
   dir: 'ttb',
-  height: 300,
-  itemsToShow: 6,
+  height: product.value.images?.length * 103,//,
+  itemsToShow: product.value.images?.length,
   wrapAround: false,
-  touchDrag: false,
-
+  touchDrag: true,
+  //snapAlign: "center",
   gap:20
 }
 
-const {$api} = useNuxtApp()
-
-const product = useDataOrFail(useAsyncData(() =>
-    $api.repo.product(product_slug)
-))
 
 </script>
 
@@ -144,9 +144,7 @@ img {
 
 
 
-#thumbnails {
-  margin-top: 10px;
-}
+
 
 .thumbnail {
   height: 100%;
@@ -161,6 +159,7 @@ img {
   opacity: 1;
 }
 .thumbnail-image {
+  display: block;
   width: 100%;
   height: 100px;
   object-fit: cover;
