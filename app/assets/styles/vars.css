@@ -41,8 +41,11 @@
     --p-accordion-header-active-hover-background: transparent !important;
     --p-inputtext-hover-border-color: black !important;
     --p-inputtext-focus-border-color: black !important;
+    --p-select-focus-border-color: black !important;
+    --p-form-field-hover-border-color: black !important;
     --p-floatlabel-focus-color: black !important;
     --p-inputtext-focus-ring-shadow: unset !important;
+    --p-select-focus-ring-shadow: unset !important;
     --p-accordion-header-padding: 16px 0 !important;
     --p-accordion-content-padding: 16px 0 !important;
     --p-accordion-header-color: black !important;

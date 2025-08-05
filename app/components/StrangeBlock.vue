@@ -42,7 +42,7 @@ const carouselConfig = {
       <p></p>
     </div>
     <div class="hidden lg:grid grid-cols-12  gap-5">
-      <div class="col-span-7 justify-self-end">
+      <div class="col-span-6 justify-self-end">
         <StrangeCard title="Не растекается"
                      text="Пептид восттанавливает структуру кожи<br>губ, поддерживая барьерные функции кожи"
                      image="/strange/1.jpg"

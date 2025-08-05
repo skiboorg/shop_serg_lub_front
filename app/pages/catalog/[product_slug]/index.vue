@@ -64,9 +64,9 @@ const thumbnailsConfig = {
                 </template>
               </Slide>
             </Carousel>
-            <Carousel class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10 h-[300px] md:h-full" id="gallery" v-bind="galleryConfig" v-model="currentSlide">
+            <Carousel class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10 h-full" id="gallery" v-bind="galleryConfig" v-model="currentSlide">
               <Slide v-for="image in product.images" :key="image.id">
-                <img  :src="image.image" alt="Gallery Image" class="gallery-image w-full h-unset md:h-auto object-contain" />
+                <img  :src="image.image" alt="Gallery Image" class="gallery-image w-full  " />
               </Slide>
               <template #addons>
                 <Navigation class="flex md:hidden"/>

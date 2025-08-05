@@ -4,7 +4,7 @@
           :loading="loading"
           severity="contrast"
           class="uppercase"
-          :disabled="disabled"
+          :disabled="!disabled"
           fluid
           :label="`К оформлению ${cost} ₽`"/>
 </template>
@@ -16,7 +16,7 @@ const props = defineProps<{
   cost: string | number
   email: string
   phone: string
-  comment: string
+  comment?: string
   orderId: string
   loading: boolean
   disabled: boolean
@@ -53,6 +53,7 @@ async function initWidget() {
   const widget = new window.LpWidget({
     name: 'Оплата заказа ' + props.orderId,
     cost: String(props.cost),
+    //key: 'aiCtl0UEKg8Szq88tuufUQN/ySPVcV9GhwkIWiNJboI=',
     key: 'h2+iB+hwVKc668QuePIeCwVE4vUBvyYDnGi0On7B4wc=',
     email: props.email,
     order_id:  props.orderId,

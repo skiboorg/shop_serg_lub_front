@@ -36,7 +36,19 @@ export function createBlankRepository(appFetch: typeof $fetch){
                 method:'post',
                 body:params.payload,
             })
-        }
+        },
+        fias(query:string){
+            return appFetch('/api/order/fias',{
+                method:'post',
+                body:{query},
+            })
+        },
+        deliveries(fias:string){
+            return appFetch('/api/order/delivery',{
+                method:'post',
+                body:{fias},
+            })
+        },
     }
 
 }
