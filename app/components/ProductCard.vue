@@ -57,7 +57,7 @@ function handleClick() {
             muted
             loop
             playsinline
-            class="block mb-6 w-full h-full md:h-[440px] object-cover"
+            class="block mb-6 w-full h-[367px] md:h-[451px] object-cover"
         ></video>
       </template>
       <template v-else>
@@ -68,26 +68,26 @@ function handleClick() {
               :alt="item?.name"
           />
           <!-- Иконка Play -->
-          <div
-              v-if="item?.video"
-              class="absolute inset-0 flex items-center justify-center "
-          >
-            <div
-                class="w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center"
-            >
-              <svg
-                  class="w-6 h-6 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-              >
-                <path
-                    fill-rule="evenodd"
-                    d="M6.5 5.5a.5.5 0 0 1 .79-.407l6 4a.5.5 0 0 1 0 .814l-6 4A.5.5 0 0 1 6 13.5v-8a.5.5 0 0 1 .5-.5z"
-                    clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
+<!--          <div-->
+<!--              v-if="item?.video"-->
+<!--              class="absolute inset-0 flex items-center justify-center "-->
+<!--          >-->
+<!--            <div-->
+<!--                class="w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center"-->
+<!--            >-->
+<!--              <svg-->
+<!--                  class="w-6 h-6 text-white"-->
+<!--                  fill="currentColor"-->
+<!--                  viewBox="0 0 20 20"-->
+<!--              >-->
+<!--                <path-->
+<!--                    fill-rule="evenodd"-->
+<!--                    d="M6.5 5.5a.5.5 0 0 1 .79-.407l6 4a.5.5 0 0 1 0 .814l-6 4A.5.5 0 0 1 6 13.5v-8a.5.5 0 0 1 .5-.5z"-->
+<!--                    clip-rule="evenodd"-->
+<!--                />-->
+<!--              </svg>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
 
       </template>

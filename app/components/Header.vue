@@ -19,12 +19,11 @@ watch(() => route.fullPath, () => {
 
 <header class="pb-3 border-b ">
   <NuxtMarquee class="bg-black text-white py-2 mb-2" :auto-fill="true" >
-    <p class="uppercase ml-5">Собери свой образ</p>
+    <p class="uppercase ml-5">NEW MEOWGLOSS</p>
     <p class="ml-5">*</p>
-    <p class="uppercase ml-5">Выбери свой стиль</p>
+    <p class="uppercase ml-5">ГЛЯСЕ ДЛЯ ГУБ</p>
     <p class="ml-5">*</p>
-    <p class="uppercase ml-5">BE A GIRL</p>
-    <p class="ml-5">*</p>
+
   </NuxtMarquee>
   <div class="container">
     <div class="flex items-center justify-between">

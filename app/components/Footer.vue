@@ -61,8 +61,8 @@ const {data} = useAsyncData(() =>  $api.repo.categories())
             </div>
 
             <div class="mb-4 mt-4  md:mb-0 mb:mt-10">
-              <a class="text-sm block opacity-50 mb-2">Публичная оферта</a>
-              <a class="text-sm block opacity-50">Политика конфиденциальности</a>
+              <a href="/oferta" download target="_blank" class="text-sm block opacity-50 mb-2">Публичная оферта</a>
+              <a href="/policy" download target="_blank" class="text-sm block opacity-50">Политика конфиденциальности</a>
             </div>
             <div class="flex flex-col md:flex-row justify-between w-full gap-4">
               <p class="order-2 md:order-1 text-sm  opacity-50">{{new Date().getFullYear()}} © Все права защищены</p>
