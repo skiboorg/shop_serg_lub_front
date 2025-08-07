@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     'nuxt3-notifications',
     'vue3-carousel-nuxt',
     '@nuxtjs/robots',
+    'nuxt-marquee',
   ],
 
   css: [
@@ -45,6 +46,7 @@ export default defineNuxtConfig({
     public:{
       apiUrl: 'http://127.0.0.1:8000',
       //apiUrl: 'https://notcatart.com',
+
     }
   },
   compatibilityDate: '2025-04-07',

@@ -42,9 +42,8 @@ const {data} = useAsyncData(() =>  $api.repo.categories())
             <div class="col-span-1 md:col-span-3">
               <p class="uppercase font-semibold mb-7">контакты</p>
               <div class="flex flex-col items-start gap-2">
-                <a href="tel:+7 (999) 000 00 00" class="text-sm uppercase opacity-50 " to="/">+7 (999) 000 00 00</a>
-                <a href="mailto:info@notcatart.ru" class="text-sm uppercase opacity-50 " to="/">info@notcatart.ru</a>
-                <a href="WhatsApp" class="text-sm uppercase opacity-50 " to="/">WhatsApp</a>
+                <a href="tel:+79958869062" class="text-sm uppercase opacity-50 " >+7 995 886 90 62</a>
+                <a href="mailto:infonotcatart@gmail.com" class="text-sm uppercase opacity-50 " >infonotcatart@gmail.com</a>
 
               </div>
             </div>
@@ -66,8 +65,8 @@ const {data} = useAsyncData(() =>  $api.repo.categories())
               <a class="text-sm block opacity-50">Политика конфиденциальности</a>
             </div>
             <div class="flex flex-col md:flex-row justify-between w-full gap-4">
-              <p class="order-2 md:order-1 text-sm  opacity-50">2025 © Все права защищены</p>
-              <p class="order-1 md:order-2 text-sm  opacity-50">Разработка сайта</p>
+              <p class="order-2 md:order-1 text-sm  opacity-50">{{new Date().getFullYear()}} © Все права защищены</p>
+              <a href="https://instagram.com/vkryaz" target="_blank" class="order-1 md:order-2 text-sm  opacity-50">Разработка сайта</a>
             </div>
           </div>
 

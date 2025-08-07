@@ -115,9 +115,9 @@ const fiasSelected = async () => {
 
     <div class="grid grid-cols-12 gap-5">
       <div class="col-span-12 md:col-span-8">
-<!--        <pre>-->
-<!--          {{order_data}}-->
-<!--        </pre>-->
+        <!--        <pre>-->
+        <!--          {{order_data}}-->
+        <!--        </pre>-->
         <p class="font-semibold text-[20px] mb-5">Личные данные</p>
         <p class="mb-4 font-extralight text-red-500">Поля отмеченные * обязательны к заполнению</p>
 
@@ -146,25 +146,25 @@ const fiasSelected = async () => {
           </FloatLabel>
         </div>
         <div class="grid grid-cols-12 gap-3 mb-5">
-          <div class="col-span-6">
+          <div class="col-span-12 md:col-span-6">
             <FloatLabel  variant="in">
-            <InputText fluid   v-model="order_data.street" id="street`"/>
-            <label for="street">Улица адреса доставки *</label>
-          </FloatLabel>
+              <InputText fluid   v-model="order_data.street" id="street`"/>
+              <label for="street">Улица адреса доставки *</label>
+            </FloatLabel>
           </div>
-          <div class="col-span-2">
+          <div class="col-span-4 md:col-span-2">
             <FloatLabel  variant="in">
               <InputText fluid   v-model="order_data.building_1" id="building_1`"/>
               <label for="building_1">Дом *</label>
             </FloatLabel>
           </div>
-          <div class="col-span-2">
+          <div class="col-span-4 md:col-span-2">
             <FloatLabel  variant="in">
               <InputText fluid   v-model="order_data.building_2" id="building_2`"/>
               <label for="building_2">Строение/корпус*</label>
             </FloatLabel>
           </div>
-          <div class="col-span-2">
+          <div class="col-span-4 md:col-span-2">
             <FloatLabel  variant="in">
               <InputText fluid   v-model="order_data.room" id="room`"/>
               <label for="room">Квартира/офис *</label>
@@ -184,58 +184,55 @@ const fiasSelected = async () => {
             variant="in"
             :key="1"
         >
-        <Select :loading="loading"
-                v-model="order_data.selected_address"
-                editable
-                class="w-full"
-                :options="fias_data"
-                optionLabel="value"
-                @update:modelValue="fiasSelected"
-                @input="handleAddressInput" />
+          <Select :loading="loading"
+                  v-model="order_data.selected_address"
+                  editable
+                  class="w-full"
+                  :options="fias_data"
+                  optionLabel="value"
+                  @update:modelValue="fiasSelected"
+                  @input="handleAddressInput" />
           <label for="over_label">Населенный пункт *</label>
         </FloatLabel>
 
-       <div v-if="delivery_data" class="grid grid-cols-2 md:grid-cols-4 gap-3">
-
-          <div class="border rounded-lg p-2 flex flex-col items-start justify-between h-[115px]  hover:shadow-lg  hover:cursor-pointer"
+        <div v-if="delivery_data" class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="border p-2 flex flex-col items-start justify-between h-[115px]  hover:shadow-lg  hover:cursor-pointer"
+               :class="selected_delivery===delivery ? 'bg-black text-white' : ''"
                @click="selected_delivery=delivery"
                v-for="delivery in delivery_data.city_info.deliveries">
             <p>{{delivery.delivery_name}}</p>
             <p>от {{delivery.min_cost}}</p>
           </div>
         </div>
+        <div class="mt-4" v-if="selected_delivery">
+          <p class="mb-4 font-extralight">Для выбора пункта получения введите ближайший к вам адрес ПВЗ.Список адресов доступен на официальном сайте</p>
+          <FloatLabel
+              class="mb-5"
+              variant="in"
+              :key="1"
+          >
+            <Select :loading="loading"
+                    v-model="order_data.selected_delivery"
+                    class="w-full"
+                    filter
+                    :filter-fields="['address']"
+                    :options="selected_delivery.options"
+                    optionLabel="name"
 
-
-                <div class="mt-4" v-if="selected_delivery">
-                  <p class="mb-4 font-extralight">Для выбора пункта получения введите ближайший к вам адрес ПВЗ.Список адресов доступен на официальном сайте</p>
-
-                  <FloatLabel
-                      class="mb-5"
-                      variant="in"
-                      :key="1"
-                  >
-                    <Select :loading="loading"
-                            v-model="order_data.selected_delivery"
-                            class="w-full"
-                            filter
-                            :filter-fields="['address']"
-                            :options="selected_delivery.options"
-                            optionLabel="name"
-
-                             >
-                      <template #option="slotProps">
-                        <div class="flex items-center">
-                          <div>Cтоимость {{slotProps.option.cost}}, дата {{slotProps.option.delivery_date}}<br>
-                            {{slotProps.option.address}}</div>
-                        </div>
-                      </template>
-                    </Select>
-                    <label for="over_label">Выберите пункт получения</label>
-                  </FloatLabel>
-                  <p v-if="order_data.selected_delivery?.comment_address">{{order_data.selected_delivery?.comment_address}}</p>
-                  <p v-if="order_data.selected_delivery?.schedule">Время работы: {{order_data.selected_delivery?.schedule}}</p>
-                  <p v-if="order_data.selected_delivery?.phone">Телефон: {{order_data.selected_delivery?.phone}}</p>
+            >
+              <template #option="slotProps">
+                <div class="flex items-center">
+                  <div>Cтоимость {{slotProps.option.cost}}, дата {{slotProps.option.delivery_date}}<br>
+                    {{slotProps.option.address}}</div>
                 </div>
+              </template>
+            </Select>
+            <label for="over_label">Выберите пункт получения</label>
+          </FloatLabel>
+          <p v-if="order_data.selected_delivery?.comment_address">{{order_data.selected_delivery?.comment_address}}</p>
+          <p v-if="order_data.selected_delivery?.schedule">Время работы: {{order_data.selected_delivery?.schedule}}</p>
+          <p v-if="order_data.selected_delivery?.phone">Телефон: {{order_data.selected_delivery?.phone}}</p>
+        </div>
 
       </div>
 
