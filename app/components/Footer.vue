@@ -61,12 +61,12 @@ const {data} = useAsyncData(() =>  $api.repo.categories())
             </div>
 
             <div class="mb-4 mt-4  md:mb-0 mb:mt-10">
-              <a href="/oferta" download target="_blank" class="text-sm block opacity-50 mb-2">Публичная оферта</a>
-              <a href="/policy" download target="_blank" class="text-sm block opacity-50">Политика конфиденциальности</a>
+              <a href="/oferta.pdf" target="_blank" class="text-sm block opacity-50 mb-2">Публичная оферта</a>
+              <a href="/policy.pdf" target="_blank" class="text-sm block opacity-50">Политика конфиденциальности</a>
             </div>
             <div class="flex flex-col md:flex-row justify-between w-full gap-4">
               <p class="order-2 md:order-1 text-sm  opacity-50">{{new Date().getFullYear()}} © Все права защищены</p>
-              <a href="https://instagram.com/vkryaz" target="_blank" class="order-1 md:order-2 text-sm  opacity-50">Разработка сайта</a>
+              <a href="https://t.me/vkryaz" target="_blank" class="order-1 md:order-2 text-sm  opacity-50">Разработка сайта</a>
             </div>
           </div>
 

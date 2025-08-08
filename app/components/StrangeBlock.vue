@@ -24,12 +24,12 @@ const carouselConfig = {
       </div>
       <StrangeCard class="hidden lg:block" title="Максимум увлажнения"
                     text="Питает и предотвращает сухость благодаря пептидам SpecPed® и маслам в составе"
-                   image="/strange/1.jpg"
+                   image="/strange/Maximum_uvl.png"
       />
       <p></p>
       <StrangeCard class="hidden lg:block" title="Не липкий"
                    text="Блеск легкий по текстуре и совсем<br>не липкий — никаких склеенных губ"
-                   image="/strange/3.jpg"
+                   image="/strange/Nelipkiy.png"
       />
     </div>
     <div class="hidden lg:grid grid-cols-1 md:grid-cols-4 gap-5 mb-16">
@@ -37,21 +37,21 @@ const carouselConfig = {
       <p></p>
       <StrangeCard title="Не растекается"
                    text="Эта богатая смягчающим веществом, незернистая формула сочетает в себе "
-                   image="/strange/2.jpg"
+                   image="/strange/NeRastekaeytcya.png"
       />
       <p></p>
     </div>
     <div class="hidden lg:grid grid-cols-12  gap-5">
       <div class="col-span-6 justify-self-end">
-        <StrangeCard title="Не растекается"
+        <StrangeCard title="Пептид"
                      text="Пептид восттанавливает структуру кожи<br>губ, поддерживая барьерные функции кожи"
-                     image="/strange/1.jpg"
+                     image="/strange/Peptid.png"
         />
       </div>
       <div class="col-span-5 justify-self-end">
         <StrangeCard title="Сладкий на вкус"
                      text="Блеск сладкий на вкус за счет<br>содержания стевии в составе"
-                     image="/strange/3.jpg"
+                     image="/strange/Sweet.png"
         />
       </div>
     </div>
@@ -60,27 +60,27 @@ const carouselConfig = {
     <Carousel  v-bind="carouselConfig">
       <Slide > <StrangeCard title="Максимум увлажнения"
                             text="Питает и предотвращает сухость благодаря пептидам SpecPed® и маслам в составе"
-                            image="/strange/1.jpg"
+                            image="/strange/Maximum_uvl.png"
       /></Slide>
 
       <Slide ><StrangeCard title="Не липкий"
                            text="Блеск легкий по текстуре и совсем<br>не липкий — никаких склеенных губ"
-                           image="/strange/3.jpg"
+                           image="/strange/Nelipkiy.png"
       /></Slide>
 
       <Slide ><StrangeCard title="Не растекается"
                            text="Эта богатая смягчающим веществом, незернистая формула сочетает в себе "
-                           image="/strange/2.jpg"
+                           image="/strange/NeRastekaeytcya.png"
       /></Slide>
 
-      <Slide ><StrangeCard title="Не растекается"
+      <Slide ><StrangeCard title="Пептид"
                            text="Пептид восттанавливает структуру кожи<br>губ, поддерживая барьерные функции кожи"
-                           image="/strange/1.jpg"
+                           image="/strange/Peptid.png"
       /></Slide>
 
       <Slide ><StrangeCard title="Сладкий на вкус"
                            text="Блеск сладкий на вкус за счет<br>содержания стевии в составе"
-                           image="/strange/3.jpg"
+                           image="/strange/Sweet.png"
       /></Slide>
 
 

@@ -49,7 +49,7 @@ const is_mobile = breakpoints.between('mobile', 'tablet')
     </NuxtLink>
 
   </div>
-  <video autoplay loop muted class="h-[540px] w-full object-cover">
+  <video autoplay loop muted class="h-[95%] md:h-[700px] w-full object-cover">
     <source :src="is_mobile ? '/sm.mp4' :  '/lg.mp4'" type="video/mp4">
 
   </video>
