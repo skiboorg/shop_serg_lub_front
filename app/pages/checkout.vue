@@ -75,6 +75,7 @@ const  handleSuccess= async () => {
     console.log(resp)
     if (resp.success) {
       toast.add({ severity: 'success', summary: 'Успешно', detail: 'Заказ создан', life: 3000 });
+      navigateTo(`/order_done?order_num=${orderId}`)
     }else {
       toast.add({ severity: 'error', summary: 'Ошибка', detail: resp.comment, life: 3000 });
     }
@@ -178,7 +179,10 @@ const fiasSelected = async () => {
           <label for="comment">Комментарий к доставке</label>
         </FloatLabel>
         <p class="font-semibold text-[20px] mt-14 mb-5">Доставка</p>
-        <p class="mb-4 font-extralight">Выберите ваш город или населенный пункт БЕЗ указания улицы, для получения возможных вариантов доставки</p>
+        <p class="mb-4 font-extralight">Для получения возможных вариантов доставки выберите ваш населенный пункт (город\поселок).<br>
+          Без выбора доставки оформить заказ невозможно.<br>
+          Если вы не видите возможные варианты доставки, то вы некорректно выбрали населенный пункт!<br>
+          Извиняемся, это не самая удобная система, но сервис для расчета доставки по другому не умеет :(</p>
         <FloatLabel
             class="mb-5"
             variant="in"

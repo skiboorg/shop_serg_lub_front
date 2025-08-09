@@ -63,8 +63,7 @@ watch(() => route.fullPath, () => {
 </header>
   <Drawer v-model:visible="mobileMenuActive" header=" " position="right">
     <div class="flex flex-col items-start gap-4">
-
-      <NuxtLink v-for="item in links" :to="item.url">{{item.label}}</NuxtLink>
+      <a v-for="item in links" :href="item.url">{{item.label}}</a>
     </div>
 
 

@@ -9,7 +9,7 @@ import { useToast } from 'primevue/usetoast';
 
 const toast = useToast();
 
-console.log(props)
+// console.log(props)
 
 props.amount ? amount.value = props.amount : null
 const addToCart = async () => {
@@ -28,7 +28,7 @@ const addToCart = async () => {
 }
 
 watch(amount, async  (new_amount) => {
-  console.log(new_amount)
+  // console.log(new_amount)
   if (!props.show_button){
     loading.value = true
     const result = await $api.repo.cart({

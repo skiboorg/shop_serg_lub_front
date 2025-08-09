@@ -17,8 +17,8 @@ const carouselConfig = {
         <h2 class="text-2xl font-semibold mb-12" >БЛЕСК, КОТОРЫЙ<br>ПРИТЯГИВАЕТ<br>ВЗГЛЯДЫ</h2>
 
 
-        <NuxtLink  to="/">
-          <img class="mb-2" src="~/assets/images/strange/title_bottom.jpg" alt="">
+        <NuxtLink  to="/catalog?name=bleski-dlya-gub">
+          <img class="mb-2 w-[97px] h-[97px] object-cover" src="~/assets/images/strange/bleck.png" alt="">
           <span class="uppercase text-sm font-semibold border-b border-black">meowgloss</span>
         </NuxtLink>
       </div>
