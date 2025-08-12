@@ -5,8 +5,8 @@ const {order_num} = useRoute().query
 <template>
   <div class="container">
     <div class="h-svh flex flex-col items-center justify-center">
-      <p class="text-3xl">Ваш заказ оформлен</p>
-      <p class="text-2xl">Номер заказа: {{order_num}}</p>
+
+      <p class=" md:text-2xl text-center">Ваш {{order_num}} успешно оформлен и будет обработан в течение 24 часов.<br>Статус заказа отображается на сайте выбранной вами службы доставки. </p>
     </div>
   </div>
 </template>

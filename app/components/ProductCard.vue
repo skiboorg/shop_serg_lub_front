@@ -57,13 +57,13 @@ function handleClick() {
             muted
             loop
             playsinline
-            class="block mb-6 w-full h-[367px] md:h-[451px] object-cover"
+            class="block mb-6 w-full h-[370px] md:h-[451px] object-cover"
         ></video>
       </template>
       <template v-else>
         <div class="relative mb-6">
           <img
-              class="block  w-full h-auto object-cover "
+              class="block  w-full h-[370px] md:h-auto object-cover "
               :src="item?.image"
               :alt="item?.name"
           />
