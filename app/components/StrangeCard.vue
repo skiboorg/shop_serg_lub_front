@@ -3,7 +3,7 @@ const props = defineProps(['title', 'text', 'image'])
 </script>
 
 <template>
-<div class="flex flex-col  lg:items-center lg:items-start justify-start">
+<div class="flex flex-col items-start justify-start">
   <p class="font-semibold mb-2" v-html="title"></p>
   <p class="test-sm opacity-70 mb-5" v-html="text"></p>
   <img class="w-full md:w-[325px] h-[325px] object-cover md:object-contain" :src="image" alt="">

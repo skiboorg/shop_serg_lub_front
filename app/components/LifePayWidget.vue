@@ -53,8 +53,8 @@ async function initWidget() {
   const widget = new window.LpWidget({
     name: 'Оплата заказа ' + props.orderId,
     cost: String(props.cost),
-    key: 'aiCtl0UEKg8Szq88tuufUQN/ySPVcV9GhwkIWiNJboI=',
-    //key: 'h2+iB+hwVKc668QuePIeCwVE4vUBvyYDnGi0On7B4wc=',
+    key: 'Hf1hWTElQ0M1WDOZxORua5Q0wOl0hDcjHAN627a0R1A=',
+
     email: props.email,
     order_id:  props.orderId,
     comment: props.comment,
