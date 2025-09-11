@@ -42,7 +42,7 @@ const {data} = useAsyncData(() =>  $api.repo.categories())
             <div class="col-span-1 md:col-span-3">
               <p class="uppercase font-semibold mb-7">контакты</p>
               <div class="flex flex-col items-start gap-2">
-                <a href="tel:+79958869062" class="text-sm uppercase opacity-50 " >+7 995 886 90 62</a>
+                <a href="https://wa.me/+79958869062" target="_blank" class="text-sm uppercase opacity-50 " >+7 995 886-90-62 (WhatsApp Only)                </a>
                 <a href="mailto:infonotcatart@gmail.com" class="text-sm uppercase opacity-50 " >infonotcatart@gmail.com</a>
 
               </div>
