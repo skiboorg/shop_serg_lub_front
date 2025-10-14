@@ -50,5 +50,8 @@
     --p-accordion-content-padding: 16px 0 !important;
     --p-accordion-header-color: black !important;
 
+    --p-radiobutton-checked-border-color: black !important;
+    --p-radiobutton-checked-background: black !important;
+
 
 }
