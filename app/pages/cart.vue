@@ -67,11 +67,11 @@ const delete_from_cart = async (id) => {
           </div>
           <div class="flex justify-between mb-5 pb-5 border-b">
             <p class="uppercase">Доставка</p>
-            <p>0 ₽</p>
+            <p>450 ₽</p>
           </div>
           <div class="flex justify-between  mb-5">
             <p class="uppercase">Итого:</p>
-            <p>{{ cartCount.total_price}} ₽</p>
+            <p>{{ cartCount.total_price + 450}} ₽</p>
           </div>
           <nuxt-link to="/checkout" >
             <Button :disabled="cartCount.items_count === 0" severity="contrast" class="uppercase" fluid label="К оформлению"/>

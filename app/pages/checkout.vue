@@ -16,12 +16,13 @@ const order_data = ref({
   selected_address:null,
   selected_delivery:null,
   comment:null,
+  delivery_address:null,
   street:null,
   building_1:null,
   building_2:'-',
   room:'-',
   firstname:null,
-  middlename:null,
+  middlename:'',
   lastname:null,
   phone:null,
   email:null,
@@ -40,10 +41,10 @@ function isOrderDataValid() {
   const requiredFields = [
     // 'selected_address',
     // 'selected_delivery',
-    'street',
-    'building_1',
-    'building_2',
-    'room',
+    'delivery_address',
+    // 'building_1',
+    // 'building_2',
+    // 'room',
     'firstname',
     'lastname',
     'phone',
@@ -59,12 +60,16 @@ function isOrderDataValid() {
 const pay_error = ref(null)
 
 const total_order_price = computed(()=>{
-  return cartCount.value.total_price + order_data.value.selected_delivery?.cost || 0
+  return cartCount.value.total_price + 450
 })
 
 
 const can_pay = computed(()=>{
-  return validateEmail.value && isOrderDataValid
+  return validateEmail.value && order_data.value.delivery_address &&
+      order_data.value.firstname &&
+      order_data.value.lastname &&
+      order_data.value.phone &&
+      order_data.value.email
 })
 const  handleSuccess= async () => {
 
@@ -76,6 +81,7 @@ const  handleSuccess= async () => {
     console.log(resp)
     if (resp.success) {
       toast.add({ severity: 'success', summary: 'Успешно', detail: 'Заказ создан', life: 3000 });
+      cartCount.value = await $api.repo.cart({session_id:sessionUUID.value,method:'get'})
       navigateTo(`/order_done?order_num=${orderId}`)
     }else {
       toast.add({ severity: 'error', summary: 'Ошибка', detail: resp.comment, life: 3000 });
@@ -147,34 +153,39 @@ const fiasSelected = async () => {
             <label for="email">Email *</label>
           </FloatLabel>
         </div>
-        <div class="grid grid-cols-12 gap-3 mb-5">
-          <div class="col-span-12 md:col-span-6">
-            <FloatLabel  variant="in">
-              <InputText fluid   v-model="order_data.street" id="street`"/>
-              <label for="street">Улица адреса доставки *</label>
-            </FloatLabel>
-          </div>
-          <div class="col-span-4 md:col-span-2">
-            <FloatLabel  variant="in">
-              <InputText fluid   v-model="order_data.building_1" id="building_1`"/>
-              <label for="building_1">Дом *</label>
-            </FloatLabel>
-          </div>
-          <div class="col-span-4 md:col-span-2">
-            <FloatLabel  variant="in">
-              <InputText fluid   v-model="order_data.building_2" id="building_2`"/>
-              <label for="building_2">Строение/корпус*</label>
-            </FloatLabel>
-          </div>
-          <div class="col-span-4 md:col-span-2">
-            <FloatLabel  variant="in">
-              <InputText fluid   v-model="order_data.room" id="room`"/>
-              <label for="room">Квартира/офис *</label>
-            </FloatLabel>
-          </div>
+<!--        <div class="grid grid-cols-12 gap-3 mb-5">-->
+<!--          <div class="col-span-12 md:col-span-6">-->
+<!--            <FloatLabel  variant="in">-->
+<!--              <InputText fluid   v-model="order_data.street" id="street`"/>-->
+<!--              <label for="street">Улица адреса доставки *</label>-->
+<!--            </FloatLabel>-->
+<!--          </div>-->
+<!--          <div class="col-span-4 md:col-span-2">-->
+<!--            <FloatLabel  variant="in">-->
+<!--              <InputText fluid   v-model="order_data.building_1" id="building_1`"/>-->
+<!--              <label for="building_1">Дом *</label>-->
+<!--            </FloatLabel>-->
+<!--          </div>-->
+<!--          <div class="col-span-4 md:col-span-2">-->
+<!--            <FloatLabel  variant="in">-->
+<!--              <InputText fluid   v-model="order_data.building_2" id="building_2`"/>-->
+<!--              <label for="building_2">Строение/корпус*</label>-->
+<!--            </FloatLabel>-->
+<!--          </div>-->
+<!--          <div class="col-span-4 md:col-span-2">-->
+<!--            <FloatLabel  variant="in">-->
+<!--              <InputText fluid   v-model="order_data.room" id="room`"/>-->
+<!--              <label for="room">Квартира/офис *</label>-->
+<!--            </FloatLabel>-->
+<!--          </div>-->
 
 
-        </div>
+<!--        </div>-->
+        <FloatLabel class="mb-5" variant="in">
+          <InputText fluid   v-model="order_data.delivery_address" id="delivery_address`"/>
+          <label for="delivery_address">Адрес к доставки</label>
+        </FloatLabel>
+
         <FloatLabel class="mb-5" variant="in">
           <InputText fluid   v-model="order_data.comment" id="comment`"/>
           <label for="comment">Комментарий к доставке</label>
@@ -261,34 +272,26 @@ const fiasSelected = async () => {
             <p class="uppercase">Товаров на сумму</p>
             <p>{{cartCount.total_price}} ₽</p>
           </div>
-<!--          <div class="flex justify-between mb-5 pb-5 border-b">-->
-<!--            <p class="uppercase">Доставка</p>-->
-<!--            <p>{{order_data.selected_delivery?.cost || 0}} ₽</p>-->
-<!--          </div>-->
+          <div class="flex justify-between mb-5 pb-5 border-b">
+            <p class="uppercase">Доставка</p>
+            <p>450 ₽</p>
+          </div>
           <div class="flex justify-between  mb-5">
             <p class="uppercase">Итого:</p>
-            <p>{{cartCount.total_price}} ₽</p>
+            <p>{{total_order_price}} ₽</p>
           </div>
           <p v-if="pay_error" class="text-red-500 font-bold">{{pay_error}}</p>
           <LifePayWidget v-if='cartCount.items_count > 0'
-
                          :orderId="orderId"
                          :loading="loading"
                          @success="handleSuccess"
                          :disabled="can_pay"
-                         :cost="cartCount.total_price"
+                         :cost="total_order_price"
                          :phone="order_data.phone"
                          :email="order_data.email" />
 
         </div>
       </div>
-
     </div>
-
   </div>
-
 </template>
-
-<style scoped>
-
-</style>
